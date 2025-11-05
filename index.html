@@ -1,118 +1,445 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vishal Jadhav — Linux & HPC System Administrator (RHCE)</title>
-  <meta name="description" content="Vishal Santosh Jadhav — Linux & HPC System Administrator. RHCE certified. Experienced with Slurm, DDN/Lustre, Ansible, AWS. Based at IIT Kharagpur."/>
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Vishal Jadhav | Linux & HPC System Administrator Portfolio</title>
+    <meta name="description" content="Portfolio for Vishal Jadhav, a Linux and HPC System Administrator with 3+ years of experience at Eviden (IIT Kharagpur) and Capgemini. Skilled in Ansible, Slurm, Lustre, and large-scale Linux server management.">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vishajadhav.co.in" />
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.395.0/dist/umd/lucide.js"></script>
+    <style>
+        /* Apply Inter font to the whole page */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617; /* Dark 'slate-950' background */
+        }
+        /* --- SMOOTH SCROLL --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Neon Hero Section Styles --- */
+        .hero-gradient {
+            background-color: #000000; /* Black background */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated blurred "aurora" shapes */
+        .hero-gradient::before, .hero-gradient::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.25;
+        }
+        .hero-gradient::before {
+            background: radial-gradient(circle, #22d3ee, transparent 70%); /* Cyan */
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+            animation: aurora-bg 20s ease-in-out infinite alternate;
+        }
+        .hero-gradient::after {
+            background: radial-gradient(circle, #a855f7, transparent 70%); /* Purple */
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            right: -150px;
+            animation: aurora-bg-2 25s ease-in-out infinite alternate;
+        }
+        @keyframes aurora-bg {
+            0% { transform: translate(0px, 0px) scale(1); }
+            100% { transform: translate(150px, 100px) scale(1.2); }
+        }
+        @keyframes aurora-bg-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            100% { transform: translate(-100px, -50px) scale(1.1); }
+        }
+
+        /* Terminal Mockup Styles */
+        .mockup-terminal .body {
+            height: 320px;
+            font-size: 0.875rem;
+        }
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Load-in Animation */
+        .load-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Scroll Animation Styles --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <div class="brand">
-        <h1>Vishal Jadhav</h1>
-        <p class="tagline">Linux &amp; HPC System Administrator (RHCE)</p>
-      </div>
-      <div class="header-actions">
-        <a class="btn btn-primary" href="Vishal_Jadhav_Resume_2025.pdf" download>Download Resume</a>
-        <button id="theme-toggle" class="btn btn-ghost" aria-label="Toggle theme">Dark</button>
-      </div>
+<body class="text-slate-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-black/90 backdrop-blur-sm shadow-sm fixed w-full z-10 top-0 border-b border-slate-800">
+        <nav class="container mx-auto max-w-6xl px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-slate-900 flex items-center">
+                <i data-lucide="terminal" class="w-6 h-6 mr-2 text-cyan-400"></i>
+                <a href="#" class="font-extrabold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    Vishal Jadhav
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-base font-medium text-slate-400 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200">About</a>
+                <a href="#skills" class="text-base font-medium text-slate-400 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200">Skills</a>
+                <a href="#experience" class="text-base font-medium text-slate-400 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200">Experience</a>
+                <a href="#projects" class="text-base font-medium text-slate-400 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200">Projects</a>
+                <a href="#certifications" class="text-base font-medium text-slate-400 px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200">Certifications</a>
+                <!-- UPDATE: Link now points to contact.html -->
+                <a href="contact.html" class="text-base font-medium bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-black font-semibold px-5 py-2 rounded-lg shadow-lg hover:opacity-90 transition-all duration-200 transform hover:-translate-y-0.5">
+                    Contact
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-slate-200 focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black shadow-lg border-t border-slate-800">
+            <a href="#about" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">About</a>
+            <a href="#skills" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">Skills</a>
+            <a href="#experience" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">Experience</a>
+            <a href="#projects" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">Projects</a>
+            <a href="#certifications" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">Certifications</a>
+            <!-- UPDATE: Link now points to contact.html -->
+            <a href="contact.html" class="block text-base font-medium text-slate-300 px-6 py-3 hover:bg-slate-900">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto max-w-6xl px-4 sm:px-6">
+
+        <!-- Hero/About Section -->
+        <section id="about" class="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28 rounded-3xl -mt-4 overflow-hidden">
+            <div class="relative z-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6 md:px-12">
+                <!-- Left Column (Text) -->
+                <div class="text-center md:text-left">
+                    <span class="text-cyan-400 font-semibold text-lg load-in" style="animation-delay: 100ms;">Linux & HPC System Administrator</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-3 mb-6 tracking-tight bg-gradient-to-r from-cyan-300 via-purple-400 to-pink-500 bg-clip-text text-transparent load-in" style="animation-delay: 200ms;">
+                        Vishal Jadhav
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-10 load-in" style="animation-delay: 300ms;">
+                        A 3+ year professional specializing in system stability, enterprise security, and process automation. Passionate about building and scaling reliable infrastructure with Ansible, Docker, and AWS.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4 load-in" style="animation-delay: 400ms;">
+                        <!-- UPDATE: Link now points to contact.html -->
+                        <a href="contact.html" class="inline-flex items-center bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-black font-semibold px-6 py-3 rounded-xl shadow-lg hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="inline-flex items-center bg-slate-800 text-slate-200 font-semibold px-6 py-3 rounded-xl shadow-md border border-slate-700 hover:bg-slate-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                            <i data-lucide="folder-kanban" class="w-5 h-5 mr-2"></i>
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column (Terminal Mockup) -->
+                <div class="flex justify-center items-center load-in" style="animation-delay: 500ms;">
+                    <div class="mockup-terminal w-full max-w-md bg-slate-900 shadow-2xl rounded-lg border-2 border-slate-700">
+                        <div class="header bg-slate-800 p-2 flex items-center rounded-t-lg">
+                            <div class="dot bg-red-500 w-3 h-3 rounded-full mr-2"></div>
+                            <div class="dot bg-yellow-500 w-3 h-3 rounded-full mr-2"></div>
+                            <div class="dot bg-green-500 w-3 h-3 rounded-full"></div>
+                            <span class="text-xs text-slate-400 font-sans ml-auto">bash</span>
+                        </div>
+                        <div class="body p-4 text-green-400 font-mono overflow-auto">
+                            <p>$ vishal --show-bio</p>
+                            <p class-><span class="text-white">Connecting to vishal.com...</span></p>
+                            <p class-><span class="text-white">Loading bio...</span></p>
+                            <p class-><span class="text-white">---</span></p>
+                            <p><span class="text-cyan-400">Name:</span> Vishal Jadhav</p>
+                            <p><span class="text-cyan-400">Role:</span> Linux/HPC Admin</p>
+                            <p><span class="text-cyan-400">Experience:</span> 3+ Years</p>
+                            <p><span class="text-cyan-400">Focus:</span> Automation, Stability</p>
+                            <p><span class="text-cyan-400">Core_Tools:</span> [ "Ansible", "Linux", "HPC" ]</p>
+                            <p class-><span class="text-white">---</span></p>
+                            <p>$ <span class="cursor">_</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 md:py-28 scroll-mt-20 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-4">Technical Toolbox</h2>
+            <p class="text-lg text-slate-400 text-center mb-12">My core set of tools and technologies for building and managing systems.</p>
+            
+            <div class="max-w-4xl mx-auto space-y-10">
+                <!-- Category 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center"><i data-lucide="terminal-square" class="w-5 h-5 mr-2"></i> OS & Scripting</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">RHEL / CentOS</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Ubuntu Server / Debian</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Advanced Bash Scripting</span>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center"><i data-lucide="play-circle" class="w-5 h-5 mr-2"></i> Automation & Config Mgmt</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Ansible (Playbooks, Roles)</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Jenkins / GitLab CI/CD</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Git</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center"><i data-lucide="cloud-cog" class="w-5 h-5 mr-2"></i> Cloud, Containers & HPC</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">AWS (EC2, S3, VPC, IAM)</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Slurm Workload Manager</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Lustre Filesystem</span>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-cyan-400 flex items-center"><i data-lucide="bar-chart-horizontal" class="w-5 h-5 mr-2"></i> Services & Monitoring</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Nginx / Apache</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Prometheus & Grafana</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Nagios / Dynatrace</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">Firewalld / iptables</span>
+                        <span class="bg-slate-800 border border-slate-700 text-slate-300 text-base font-medium px-4 py-2 rounded-lg shadow-sm">LDAP / NFS / Samba</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-20 md:py-28 scroll-mt-20 bg-slate-900 rounded-3xl shadow-lg border border-slate-800 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-16">Professional Experience</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-12 max-w-3xl mx-auto">
+                
+                <!-- Job 1 -->
+                <div class="bg-black p-8 rounded-2xl shadow-xl border border-slate-800">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="briefcase" class="w-6 h-6 mr-3 text-cyan-400"></i>
+                        <h3 class="text-2xl font-semibold text-slate-100">Linux / HPC System Administrator – L2</h3>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-400 mb-1">Eviden (Client: IIT Kharagpur HPC Facility)</h4>
+                    <p class="text-sm text-slate-500 mb-4">Jan 2024 – Present | Kharagpur, West Bengal</p>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300">
+                        <li>Administering 450+ HPC compute nodes and 5PB+ DDN/Lustre storage.</li>
+                        <li>Responsible for Slurm workload manager operations (queues, fair-share, debugging).</li>
+                        <li>Providing end-to-end support to research users (software, environment modules, MPI, job submission).</li>
+                        <li>Developing and maintaining Ansible automation for patching, configuration, and node provisioning.</li>
+                        <li>Handling production incidents as the single-point owner for uptime, recovery, and SLA compliance.</li>
+                        <li>Managing user accounts, LDAP access policies, and application permissions.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="bg-black p-8 rounded-2xl shadow-xl border border-slate-800">
+                    <div class="flex items-center mb-3">
+                        <i data-lucide="briefcase" class="w-6 h-6 mr-3 text-cyan-400"></i>
+                        <h3 class="text-2xl font-semibold text-slate-100">Linux Administrator – L2</h3>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-400 mb-1">Capgemini</h4>
+                    <p class="text-sm text-slate-500 mb-4">Jul 2022 – Jan 2024 | Pune, India</p>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-slate-300">
+                        <li>Managed 2000+ Linux servers (RHEL, CentOS) in a large-scale enterprise environment.</li>
+                        <li>Performed OS patching, Satellite fixes, kernel upgrades, and LVM resizing.</li>
+                        <li>Handled incidents and alerts from Nagios & Dynatrace (CPU/Disk usage, memory leaks).</li>
+                        <li>Executed Change Management operations via ServiceNow, following ITIL standards.</li>
+                        <li>Managed user accounts, sudo privileges, filesystem ACLs, and OS-level hardening.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Projects Section -->
+        <section id="projects" class="py-20 md:py-28 scroll-mt-20 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-16">Key Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-black p-8 rounded-2xl shadow-lg border border-slate-800 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-cyan-500/10 hover:shadow-xl">
+                    <h3 class="text-2xl font-semibold text-slate-100 mb-3">HPC Node & Config Automation</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        <strong class="text-slate-200">Problem:</strong> Manually provisioning and patching 450+ HPC nodes was slow and created configuration drift.
+                        <br>
+                        <strong class="text-slate-200">Solution:</strong> Developed Ansible playbooks to automate OS patching, security hardening, and user account creation, ensuring all nodes are consistent.
+                        <br>
+                        <strong class="text-slate-200">Result:</strong> Reduced manual effort by over 90% and guaranteed identical configurations across the entire cluster.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-900/50 text-purple-300 text-sm font-semibold px-3 py-1 rounded-full">Ansible</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">Bash</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">HPC</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">Linux Hardening</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-black p-8 rounded-2xl shadow-lg border border-slate-800 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-cyan-500/10 hover:shadow-xl">
+                    <h3 class="text-2xl font-semibold text-slate-100 mb-3">Enterprise Server Monitoring</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        <strong class="text-slate-200">Problem:</strong> Lack of proactive monitoring on 2000+ servers led to reactive firefighting for CPU, memory, and disk issues.
+                        <br>
+                        <strong class="text-slate-200">Solution:</strong> Deployed and configured Nagios & Dynatrace agents to monitor key system metrics. Created custom alert rules and dashboards.
+                        <br>
+                        <strong class="text-slate-200">Result:</strong> Enabled proactive incident response, reducing critical downtime by ~30% by catching issues before they impacted users.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-900/50 text-purple-300 text-sm font-semibold px-3 py-1 rounded-full">Nagios</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">Dynatrace</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">Monitoring</span>
+                        <span class="bg-slate-800 text-slate-400 text-sm font-semibold px-3 py-1 rounded-full">ITIL</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-20 md:py-28 scroll-mt-20 bg-slate-900 rounded-3xl shadow-lg border border-slate-800 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-100 mb-16">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Certification Card -->
+                <div class="flex items-center bg-black p-5 rounded-xl shadow-sm border border-slate-800">
+                    <div class="bg-cyan-900/50 p-3 rounded-full mr-5">
+                        <i data-lucide="award" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-slate-200">Red Hat Certified System Administrator (RHCSA)</span>
+                </div>
+                <!-- Certification Card -->
+                <div class="flex items-center bg-black p-5 rounded-xl shadow-sm border border-slate-800">
+                    <div class="bg-cyan-900/50 p-3 rounded-full mr-5">
+                        <i data-lucide="award" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-slate-200">Red Hat Certified Engineer (RHCE)</span>
+                </div>
+                <!-- Certification Card -->
+                <div class="flex items-center bg-black p-5 rounded-xl shadow-sm border border-slate-800">
+                    <div class="bg-cyan-900/50 p-3 rounded-full mr-5">
+                        <i data-lucide="award" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-slate-200">ITIL 4 Foundation</span>
+                </div>
+                <!-- Certification Card -->
+                <div class="flex items-center bg-black p-5 rounded-xl shadow-sm border border-slate-800">
+                    <div class="bg-cyan-900/50 p-3 rounded-full mr-5">
+                        <i data-lucide="award" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-slate-200">Foundation of Project Management</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <!-- UPDATE: This is now a simple CTA linking to the contact page -->
+        <section id="contact" class="py-20 md:py-28 scroll-mt-20 text-center fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Let's Work Together</h2>
+            <p class="text-lg text-slate-400 mb-8 max-w-xl mx-auto">
+                I'm always open to discussing new opportunities, projects, or just chatting about tech.
+            </p>
+            <div class="flex justify-center">
+                <a href="contact.html" class="flex items-center justify-center w-full sm:w-auto bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-black font-semibold px-6 py-3 rounded-xl shadow-lg hover:opacity-90 transition-all duration-300 transform hover:-translate-y-0.5">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                    Go to Contact Page
+                </a>
+            </div>
+        </section>
+
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h2 class="hero-title">Hi — I'm <span class="accent">Vishal</span></h2>
-          <h3 class="typing" id="typing"></h3>
-          <p class="lead">RHCE-certified Linux & HPC engineer with experience managing 450+ compute nodes, 5PB DDN + Lustre storage, Slurm, Ansible, and cloud integration. I ensure high-availability for research workloads at IIT Kharagpur.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="Vishal_Jadhav_Resume_2025.pdf" download>Get Resume</a>
-            <a class="btn btn-outline" href="#contact">Contact</a>
-          </div>
-        </div>
-        <div class="hero-right">
-          <div class="card stats">
-            <div class="stat"><strong>450+</strong><span>Compute Nodes</span></div>
-            <div class="stat"><strong>5PB+</strong><span>DDN &amp; Lustre</span></div>
-            <div class="stat"><strong>3+</strong><span>Years Experience</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-black border-t border-slate-800">
+        <p class="text-slate-500">&copy; 2025 Vishal Jadhav. All rights reserved.</p>
+    </footer>
 
-    <section id="about" class="section container">
-      <h3>About</h3>
-      <p>I work on the IIT Kharagpur HPC cluster on behalf of Eviden, handling cluster operations, storage management, user support, and automation. I specialize in Slurm scheduler management, storage tuning, Ansible automation, and incident response for scientific computing workloads.</p>
-    </section>
+    <!-- Simple JS for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    <section id="skills" class="section container">
-      <h3>Skills</h3>
-      <div class="skills-grid">
-        <div class="skill"><strong>Linux</strong><span>RHEL 5-9, Hardening, LVM</span></div>
-        <div class="skill"><strong>HPC</strong><span>Slurm, MPI, Job Scheduling</span></div>
-        <div class="skill"><strong>Storage</strong><span>DDN, Lustre, NFS</span></div>
-        <div class="skill"><strong>Automation</strong><span>Ansible, Shell Scripts</span></div>
-        <div class="skill"><strong>Cloud & DevOps</strong><span>AWS, GitHub Actions</span></div>
-        <div class="skill"><strong>Monitoring</strong><span>Nagios, Dynatrace</span></div>
-      </div>
-    </section>
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    <section id="experience" class="section container">
-      <h3>Experience</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="time">Jan 2024 — Present</div>
-          <div class="content">
-            <h4>Eviden (IIT Kharagpur HPC) — Linux / HPC System Administrator L2</h4>
-            <ul>
-              <li>Administer 450+ compute nodes and manage 5PB+ DDN + Lustre storage.</li>
-              <li>Manage Slurm workload manager (queues, fairshare, job failures) and provide user support for researchers.</li>
-              <li>Automate patching and provisioning using Ansible; perform OS patching and security hardening.</li>
-              <li>Act as single-point owner for cluster incidents and coordinate with storage engineers for firmware/performance issues.</li>
-            </ul>
-          </div>
-        </div>
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
 
-        <div class="timeline-item">
-          <div class="time">Jul 2022 — Jan 2024</div>
-          <div class="content">
-            <h4>Capgemini — Linux Administrator L2</h4>
-            <ul>
-              <li>Managed 2000+ Linux servers across production and non-production environments.</li>
-              <li>Performed patching, LVM management, incident response with Nagios & Dynatrace, and change management via ServiceNow.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        // --- Scroll Animation & Icon Init ---
+        (function() {
+            // Init Lucide Icons
+            lucide.createIcons();
 
-    <section id="certs" class="section container">
-      <h3>Certifications</h3>
-      <ul class="cert-list">
-        <li>Red Hat Certified Engineer (RHCE)</li>
-        <li>Red Hat Certified System Administrator (RHCSA)</li>
-        <li>ITIL 4 Foundation</li>
-        <li>Foundation of Project Management</li>
-      </ul>
-    </section>
+            // Scroll Animation Observer
+            const sections = document.querySelectorAll('.fade-in-section');
+            
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the element must be visible
+            };
 
-    <section id="contact" class="section container">
-      <h3>Contact</h3>
-      <p>Based at IIT Kharagpur. Email: <a href="mailto:vsjadhav926@gmail.com">vsjadhav926@gmail.com</a></p>
-      <p>LinkedIn: <em>(add your LinkedIn URL)</em> • GitHub: <em>(add your GitHub URL)</em></p>
-    </section>
-  </main>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Vishal Santosh Jadhav — Linux &amp; HPC Administrator • Built for performance & reliability.</p>
-    </div>
-  </footer>
+            sections.forEach(section => {
+                observer.observe(section);
+            });
 
-  <script src="script.js"></script>
+        })();
+    </script>
+
 </body>
 </html>
